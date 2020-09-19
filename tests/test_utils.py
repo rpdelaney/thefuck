@@ -132,6 +132,8 @@ def test_get_all_matched_commands(stderr, result):
 
 @pytest.mark.usefixtures('no_memoize')
 @pytest.mark.parametrize('script, names, result', [
+    ('/usr/bin/git diff', ['git', 'hub'], True),
+    ('/bin/hdfs dfs -rm foo', ['hdfs'], True),
     ('git diff', ['git', 'hub'], True),
     ('hub diff', ['git', 'hub'], True),
     ('hg diff', ['git', 'hub'], False)])
@@ -141,6 +143,8 @@ def test_is_app(script, names, result):
 
 @pytest.mark.usefixtures('no_memoize')
 @pytest.mark.parametrize('script, names, result', [
+    ('/usr/bin/git diff', ['git', 'hub'], True),
+    ('/bin/hdfs dfs -rm foo', ['hdfs'], True),
     ('git diff', ['git', 'hub'], True),
     ('hub diff', ['git', 'hub'], True),
     ('hg diff', ['git', 'hub'], False)])
